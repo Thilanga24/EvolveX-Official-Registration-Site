@@ -968,19 +968,7 @@ h3,
     box-shadow: 0 0 40px rgba(0, 242, 254, 0.1);
 }
 
-.pillar-card.pillar-featured::after {
-    content: 'TOP PICK';
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: var(--gradient-blue);
-    font-size: 0.65rem;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    color: white;
-}
+
 
 .footer-line p {
     font-size: 1.1rem;
