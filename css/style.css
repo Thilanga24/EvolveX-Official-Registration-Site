@@ -350,17 +350,14 @@ h3,
 
 .ev-e {
     font-size: 1.3em;
-    display: inline-block;
 }
 
 .ev-volve {
     font-size: 0.75em;
-    display: inline-block;
 }
 
 .ev-x {
     font-size: 1.3em;
-    display: inline-block;
     color: var(--primary-magenta);
     -webkit-text-fill-color: var(--primary-magenta);
 }
@@ -394,7 +391,7 @@ h3,
 }
 
 .section-title {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
     margin-bottom: 25px;
     line-height: 1.1;
     font-weight: 800;
@@ -957,6 +954,25 @@ h3,
         border-radius: 2px;
     }
 
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    .logo img {
+        height: 50px;
+        margin-right: 15px;
+        margin-left: 0;
+    }
+
+    .glitch-text {
+        font-size: clamp(1.5rem, 10vw, 2.2rem);
+        white-space: nowrap;
+    }
+
+    .word-wrap-prevent {
+        white-space: nowrap;
+    }
+
     .hero-btns {
         flex-direction: column;
     }
@@ -968,6 +984,10 @@ h3,
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 40px;
+    }
+
+    .pillar-card h3 {
+        font-size: 1.2rem;
     }
 }
 
