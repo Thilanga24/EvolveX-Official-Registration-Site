@@ -3,20 +3,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.getElementById('navbar');
     const scrollProgress = document.querySelector('.scroll-progress');
 
-    window.addEventListener('scroll', () => {
-        // Navbar
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
+    let ticking = false;
 
-        // Progress Bar
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        if (scrollProgress) {
-            scrollProgress.style.width = scrolled + "%";
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                // Navbar
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+
+                // Progress Bar
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                if (scrollProgress) {
+                    scrollProgress.style.width = scrolled + "%";
+                }
+                ticking = false;
+            });
+            ticking = true;
         }
     });
 
@@ -134,11 +142,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Glitch Effect Variation ---
-    // (Optional) Add dynamic glitch intervals or logic if needed
     const glitchTitle = document.querySelector('.glitch-text');
     if (glitchTitle) {
+        // Reduced frequency for better performance, especially on mobile
+        const glitchInterval = window.innerWidth < 768 ? 500 : 200;
         setInterval(() => {
             glitchTitle.style.setProperty('--glitch-offset', Math.random() * 10 - 5 + 'px');
-        }, 100);
+        }, glitchInterval);
     }
+
 });

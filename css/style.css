@@ -225,6 +225,7 @@ h3,
 .marquee-content {
     display: inline-block;
     animation: marquee 30s linear infinite;
+    will-change: transform;
 }
 
 .marquee-item {
@@ -274,6 +275,12 @@ h3,
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+}
+
+@media (max-width: 768px) {
+    .hero-bg {
+        background-attachment: scroll;
+    }
 }
 
 .hero-bg::before {
