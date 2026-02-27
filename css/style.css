@@ -168,7 +168,7 @@ h3,
     display: flex;
     align-items: center;
     gap: 12px;
-    font-size: 1.45rem;
+    font-size: 1.65rem;
     font-weight: 900;
     text-decoration: none;
     color: var(--text-white);
@@ -184,7 +184,7 @@ h3,
 }
 
 .logo img {
-    height: 44px;
+    height: 54px;
     filter: drop-shadow(0 0 10px rgba(0, 224, 255, 0.55)) drop-shadow(0 0 20px rgba(255, 46, 159, 0.25));
     transition: filter 0.3s ease, transform 0.3s ease;
 }
@@ -557,6 +557,15 @@ h3,
 @media (max-width: 768px) {
     .hero-bg {
         background-attachment: scroll;
+        background-size: 150%;
+        background-position: center top;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-bg {
+        background-size: 200%;
+        background-position: center center;
     }
 }
 
