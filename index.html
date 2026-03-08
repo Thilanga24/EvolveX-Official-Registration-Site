@@ -14,6 +14,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Orbitron:wght@400;500;700;900&display=swap"
         rel="stylesheet">
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="assets/bg.jpg" as="image">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" as="style">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css?v=5">
@@ -104,11 +107,13 @@
                     <div class="gaming-planes-container">
                         <div class="gaming-plane plane-1">
                             <!-- Image 1 (Swapped to use pic 2) -->
-                            <img src="assets/What%20is%20evolvex%202.jpeg" alt="EvolveX Gaming Tournament">
+                            <img src="assets/What%20is%20evolvex%202.jpeg" alt="EvolveX Gaming Tournament"
+                                loading="lazy">
                         </div>
                         <div class="gaming-plane plane-2">
                             <!-- Image 2 (Swapped to use pic 1) -->
-                            <img src="assets/What%20is%20evolvex%201.jpeg" alt="EvolveX Gaming Experience">
+                            <img src="assets/What%20is%20evolvex%201.jpeg" alt="EvolveX Gaming Experience"
+                                loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -169,10 +174,10 @@
                 <div class="image-box reveal-left">
                     <div class="gaming-planes-container">
                         <div class="gaming-plane plane-1">
-                            <img src="assets/Game%20competition%201.jpeg" alt="Battleground Gaming">
+                            <img src="assets/Game%20competition%201.jpeg" alt="Battleground Gaming" loading="lazy">
                         </div>
                         <div class="gaming-plane plane-2">
-                            <img src="assets/Game%20competition%202.jpeg" alt="Esports Competition">
+                            <img src="assets/Game%20competition%202.jpeg" alt="Esports Competition" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -205,10 +210,10 @@
                 <div class="image-box reveal-right">
                     <div class="gaming-planes-container">
                         <div class="gaming-plane plane-1">
-                            <img src="assets/Game%20development%201.jpeg" alt="Game Dev Workshops">
+                            <img src="assets/Game%20development%201.jpeg" alt="Game Dev Workshops" loading="lazy">
                         </div>
                         <div class="gaming-plane plane-2">
-                            <img src="assets/Game%20development%202.jpeg" alt="Game Dev Coding">
+                            <img src="assets/Game%20development%202.jpeg" alt="Game Dev Coding" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -223,10 +228,10 @@
                 <div class="image-box reveal-left">
                     <div class="gaming-planes-container">
                         <div class="gaming-plane plane-1">
-                            <img src="assets/Game%20conference%201.jpeg" alt="Esports Conference">
+                            <img src="assets/Game%20conference%201.jpeg" alt="Esports Conference" loading="lazy">
                         </div>
                         <div class="gaming-plane plane-2">
-                            <img src="assets/Game%20conference%202.jpeg" alt="Gaming Panel">
+                            <img src="assets/Game%20conference%202.jpeg" alt="Gaming Panel" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -370,7 +375,7 @@
         <div class="container">
             <div class="about-card reveal-bottom">
                 <div class="about-logo">
-                    <img src="assets/RacUOK.png" alt="Rotaract Logo" class="rot-logo">
+                    <img src="assets/RacUOK.png" alt="Rotaract Logo" class="rot-logo" loading="lazy">
                 </div>
                 <div class="about-content">
                     <h2 class="section-title">About Rotaract Club of <span>University of Kelaniya</span></h2>

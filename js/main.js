@@ -3,21 +3,72 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.getElementById('navbar');
     const scrollProgress = document.querySelector('.scroll-progress');
 
+    let ticking = false;
+
+    const navItems = document.querySelectorAll('.nav-links a');
+
     window.addEventListener('scroll', () => {
-        // Navbar
-        if (window.scrollY > 50) {
+        const scrollPos = window.scrollY;
+
+        // Navbar scrolled state
+        if (scrollPos > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
 
-        // Progress Bar
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        if (scrollProgress) {
-            scrollProgress.style.width = scrolled + "%";
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                // Progress Bar
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                if (scrollProgress) {
+                    scrollProgress.style.width = scrolled + "%";
+                }
+
+                // Active Link Detection
+                let current = "";
+                const sections = document.querySelectorAll('section, header');
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    // Adjust trigger point for better feel
+                    if (scrollPos >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href') === `#${current}`) {
+                        item.classList.add('active');
+                    }
+                });
+
+                ticking = false;
+            });
+            ticking = true;
         }
+    });
+
+    // --- Magnetic Hover Effect for Nav Links ---
+    const navLinkEls = document.querySelectorAll('.nav-links a');
+
+    navLinkEls.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            link.style.transition = 'transform 0.1s ease, color 0.25s ease, text-shadow 0.25s ease, background 0.25s ease';
+        });
+        link.addEventListener('mousemove', (e) => {
+            const rect = link.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            link.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
+        });
+        link.addEventListener('mouseleave', () => {
+            link.style.transition = 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease, text-shadow 0.25s ease, background 0.25s ease';
+            link.style.transform = 'translate(0, 0)';
+        });
     });
 
     // --- Intersection Observer for Reveals ---
@@ -134,11 +185,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Glitch Effect Variation ---
-    // (Optional) Add dynamic glitch intervals or logic if needed
     const glitchTitle = document.querySelector('.glitch-text');
     if (glitchTitle) {
+        // Reduced frequency for better performance, especially on mobile
+        const glitchInterval = window.innerWidth < 768 ? 500 : 200;
         setInterval(() => {
             glitchTitle.style.setProperty('--glitch-offset', Math.random() * 10 - 5 + 'px');
-        }, 100);
+        }, glitchInterval);
     }
+
 });
