@@ -1005,6 +1005,12 @@ h3,
     .pillar-card h3 {
         font-size: 1.2rem;
     }
+
+    .hero-bg {
+        background-attachment: scroll;
+        background-position: center center;
+        background-size: cover;
+    }
 }
 
 /* --- Success Modal --- */

@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     categorySelect.addEventListener('change', (e) => {
         const value = e.target.value;
-        const isTeamEvent = (value === 'gaming' || value === 'both' || value === 'dev');
+        const isTeamEvent = (value === 'dev');
 
         if (isTeamEvent) {
             teamNameGroup.style.display = 'flex';
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.disabled = true;
 
         // REPLACE THIS URL with your actual Google Apps Script Web App URL
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbyLrg7mmB0AinsKuMKNplC18cTSOgwVmUIwABqaOt2xkWqJtjWiQc_Swsp_yaFik_TO/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxE-dw1iF24kDo_TAOu1AVZYdDLILLfMMi0UgVkOZU3lO22TZWb_Kw1b_RqG_RXSMT16A/exec';
 
         // Collect all form data directly from the HTML form
         const formData = new FormData(regForm);
