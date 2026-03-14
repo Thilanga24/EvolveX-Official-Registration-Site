@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     categorySelect.addEventListener('change', (e) => {
         const value = e.target.value;
-        const isTeamEvent = (value === 'dev');
+        const isTeamEvent = (value === 'dev' || value === 'tournament' || value === 'both');
 
         if (isTeamEvent) {
             teamNameGroup.style.display = 'flex';
